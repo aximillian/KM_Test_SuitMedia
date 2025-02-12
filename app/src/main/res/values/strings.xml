@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Question 1</string>
+
+    <string name="name">Enter your name</string>
+    <string name="palindrome">Enter text to check palindrome</string>
+    <string name="photo">Photo\n</string>
+    <string name="check">Check</string>
+    <string name="next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
