@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screen.FirstFragment"
-    android:background="@drawable/bg_firstSc"
+    android:background="@drawable/bg_first_sc"
     >
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:layout_height="116dp"
             android:layout_gravity="center"
             android:contentDescription="@string/photo"
-            android:src="@drawable/ic_firstSc" />
+            android:src="@drawable/ic_first_sc" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,6 +43,7 @@
                 android:paddingBottom="10dp"
                 android:background="@drawable/shape_white"
                 android:hint="@string/name"
+                android:textStyle="bold"
                 android:textColor="#04021D"
                 android:textColorHint="#59686777"
                 android:layout_marginBottom="15dp"
@@ -59,6 +60,7 @@
                 android:paddingBottom="10dp"
                 android:background="@drawable/shape_white"
                 android:hint="@string/palindrome"
+                android:textStyle="bold"
                 android:textColor="#04021D"
                 android:textColorHint="#59686777"
                 android:layout_marginBottom="15dp"
@@ -84,6 +86,7 @@
                 android:backgroundTint="#2B637B"
                 android:layout_marginBottom="15dp"
                 android:text="@string/check"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 />
 
@@ -96,6 +99,7 @@
                 android:background="@drawable/shape_white"
                 android:backgroundTint="#2B637B"
                 android:text="@string/next"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 />
 
