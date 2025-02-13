@@ -15,16 +15,27 @@ class UserViewModel : ViewModel() {
     val users: LiveData<List<User>> get() = _users
 
     private var currentPage = 1
+    private val allUsers = mutableListOf<User>()
 
     fun fetchUsers() {
         viewModelScope.launch {
             try {
                 val response = RetrofitInstance.api.getUsers(currentPage)
-                _users.value = response.data
-                currentPage++
+                if (response.data.isNotEmpty()) {
+                    allUsers.addAll(response.data)
+                    _users.value = allUsers
+                    currentPage++
+                }
             } catch (e: Exception) {
                 Log.e("UserViewModel", "Error fetching users: ${e.message}")
             }
         }
+    }
+
+    fun refreshUsers() {
+        currentPage = 1
+        allUsers.clear()
+        _users.value = emptyList()
+        fetchUsers()
     }
 }
