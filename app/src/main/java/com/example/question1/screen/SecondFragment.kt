@@ -28,16 +28,17 @@ class SecondFragment : Fragment() {
 
         binding.tvName.text = args.name.ifEmpty { "John Doe" }
 
-        if (args.username.isNullOrEmpty()) {
-            binding.tvUsername.visibility = View.VISIBLE
-            binding.tvSelected.visibility = View.GONE
-        } else {
-            binding.tvUsername.visibility = View.GONE
-            binding.tvSelected.visibility = View.VISIBLE
-            binding.tvSelected.text = args.username
+        val navController = findNavController()
+        val savedStateHandle = navController.currentBackStackEntry?.savedStateHandle
+
+        savedStateHandle?.getLiveData<String>("SELECTED_USER")?.observe(viewLifecycleOwner) { selectedUser ->
+            if (!selectedUser.isNullOrEmpty()) {
+                binding.tvName.text = selectedUser
+            }
         }
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
+
         binding.btnChooseUser.setOnClickListener {
             val action = SecondFragmentDirections.actionSecondFragmentToThirdFragment(args.name)
             findNavController().navigate(action)
